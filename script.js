@@ -53,7 +53,13 @@ $(window).scroll(function(){
 
 }).call(this);
 
-/* плавный скролл */
+$('#content').on('click', function() {
+    $('body').removeClass('menu-active');
+});
+
+/* 
+================плавный скролл===========
+*/
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
