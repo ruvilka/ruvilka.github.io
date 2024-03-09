@@ -286,7 +286,7 @@ header.header-open div#site-title { left: 20px; }
 header.header-open div.menu-trigger { right: 10px; }
 header.header-open div.sh1 { width: 100px; }
 header.header-open div.sh2 { width: 80px; }
-header.header-open div.sh3 { width: 120px; }
+header.header-open div.sh3 { width: 125px; }
 body.menu-active div#slide-menu ul { right: 0px; opacity: 1; }
 
 /*
