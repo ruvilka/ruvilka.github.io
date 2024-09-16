@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.8e33215e.css",
+    "main.js": "/static/js/main.ef747335.js",
+    "static/js/453.0b877c9c.chunk.js": "/static/js/453.0b877c9c.chunk.js",
+    "static/media/Rodeoc.ttf": "/static/media/Rodeoc.cfe3fd363261ea8778b8.ttf",
+    "index.html": "/index.html",
+    "main.8e33215e.css.map": "/static/css/main.8e33215e.css.map",
+    "main.ef747335.js.map": "/static/js/main.ef747335.js.map",
+    "453.0b877c9c.chunk.js.map": "/static/js/453.0b877c9c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8e33215e.css",
+    "static/js/main.ef747335.js"
+  ]
+}
