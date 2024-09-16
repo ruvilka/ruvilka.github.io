@@ -1,0 +1,398 @@
+#include <iostream>
+#include <math.h>
+#include <cstdlib>
+using namespace std;
+
+void n1 ()
+{
+    cout << "Задание 1:\n" << endl;
+    cout << "   *   " << endl;
+    cout << "   *   " << endl;
+    cout << "   *   " << endl;
+    cout << "*******" << endl;
+    cout << "   *   " << endl;
+    cout << "   *   " << endl;
+    cout << "   *   \n" << endl;
+}    
+void n2 ()
+{
+    cout << "Задание 2:\n" << endl;
+    cout << "*******" << endl;
+    cout << "*******" << endl;
+    cout << "*******" << endl;
+    cout << "*******" << endl;
+    cout << "*******" << endl;
+    cout << "*******" << endl;
+    cout << "*******\n" << endl;
+}    
+void n3 ()
+{
+    cout << "Задание 3:\n" << endl;
+    cout << "   *   " << endl;
+    cout << "  ***  " << endl;
+    cout << " ***** " << endl;
+    cout << "*******" << endl;
+    cout << " ***** " << endl;
+    cout << "  ***  " << endl;
+    cout << "   *   \n" << endl;
+}    
+void n4 ()
+{
+    cout << "Задание 4:\n" << endl;
+    cout << "   *   " << endl;
+    cout << "  ***  " << endl;
+    cout << " ***** " << endl;
+    cout << "*******\n" << endl;
+}    
+void n5 ()
+{
+    cout << "Задание 5:\n" << endl;
+    cout << "   *   " << endl;
+    cout << "  ***  " << endl;
+    cout << " ***** " << endl;
+    cout << "*******" << endl;
+    cout << "   *   " << endl;
+    cout << "   *   " << endl;
+    cout << "   *   " << endl;
+    cout << "   *   \n" << endl;
+}    
+void n6 ()
+{
+    cout << "Задание 6:" << endl;
+    cout << "введите число" << endl;
+    int d;
+    cin >> d; 
+    cout << d << "^2= " << d*d << endl;
+    cout << " аа" << endl;
+}    
+void n7 ()
+{
+    cout << "Задание 7:" << endl;
+    cout << "Пачка чая 145 рублей, введите количество пачек: ";
+    int d;
+    cin >> d; 
+    int cost = 145;
+    cout << d*cost << endl;
+}  
+
+
+void n8 ()
+{
+    cout << "Задание 8:" << endl;
+    cout << "Градусы в радианы: ";
+    int d;
+    cin >> d; 
+    cout << d*3.14/180 << endl;
+}    
+void n9 ()
+{
+    cout << "Задание 9:" << endl;
+    cout << "радианы в Градусы: ";
+    double d;
+    cin >> d; 
+    cout << d*180/3.14 << endl;
+}    
+void n10 ()
+{
+    cout << "Задание 10:" << endl;
+    cout << "введите сумму вклада под 9.7%: ";
+    double percent = 0.097;
+    double cost;
+    cin >> cost;
+    cout << "доход: " << percent*cost << endl;
+}    
+void n11 ()
+{
+    cout << "Задание 11:" << endl;
+    cout << "Расход авто 11.3л на 100км, введите длину пути: ";
+    double rashod = 11.3;
+    double km;
+    cin >> km;
+    cout << "Расход топлива на " <<km<< "составил: " << km*(rashod/100)  << endl;
+}    
+
+
+double ost(int count, double value) {
+    double res = value / count; //1.5
+    int s = res; //1
+    double w = res - s; //1.5 - 1 = 0.5
+    return w;
+}
+void n12 ()
+{
+    cout << "Задание 12:" << endl;
+    cout << "введите целое число: ";
+    double s;   
+    cin >> s;
+    int ss = s;  
+    
+    if (s == ss){
+        // ost(2, s);
+        cout << "Остаток от деления " << ss << " на 2: " << ost(2, s) << endl;
+        cout << "Остаток от деления " << ss << " на 3: " << ost(3, s) << endl;
+        cout << "Остаток от деления " << ss << " на 5: " << ost(5, s) << endl;
+    }
+    else{
+        cout << "это не целое число" << endl;
+        
+    }
+}    
+void n13 ()
+{
+    cout << "Задание 13:" << endl;
+    cout << "введите целое число: ";
+    double s;   
+    cin >> s;
+    int ss = s;  
+    
+    if (s == ss){
+        // ost(2, s);
+        cout << "целое от деления " << ss << " на 2: " << ss/2 << endl;
+        cout << "целое от деления " << ss << " на 3: " << ss/3 << endl;
+        cout << "целое от деления " << ss << " на 5: " << ss/5 << endl;
+    }
+    else{
+        cout << "это не целое число" << endl;
+        
+    }
+}    
+void n14 ()
+{
+    cout << "Задание 14:" << endl;
+    cout << "введите целое число: ";
+    double s;   
+    cin >> s;
+    int ss = s;  
+    
+    if (s == ss){
+        // ost(2, s);
+        cout << "последняя цифра числа " << ss << " это: " << ss%10 << endl;
+    }
+    else{
+        cout << "это не целое число" << endl;
+        
+    }
+}    
+void n15 ()
+{
+    cout << "Задание 15:" << endl;
+    cout << "введите целое число: ";
+    double s;   
+    cin >> s;
+    int ss = s;  
+    
+    if (s == ss){
+        // ost(2, s);
+        cout << "ПРЕДпоследняя цифра числа " << ss << " это: " << (ss/10)%10 << endl;
+    }
+    else{
+        cout << "это не целое число" << endl;
+        
+    }
+}    
+void n16 ()
+{
+    cout << "Задание 16:" << endl;
+    cout << "введите пятизначное число например 12345: ";
+    int s;   
+    cin >> s;
+    cout << "Сумма цифр = " << s%10 + (s/10)%10 + (s/100)%10 + (s/1000)%10 + (s/10000)%10  << endl;
+
+}    
+void n17 ()
+{
+    cout << "Задание 17:" << endl;
+    cout << "введите вещественное число 1: ";
+    double s;   
+    cin >> s;
+    double ss = s;  
+    cout << "введите вещественное число 2: ";
+    cin >> s;
+    ss += s;  
+    cout << "введите вещественное число 3: ";
+    cin >> s;
+    ss += s;  
+    
+    cout << "Среднее значение = " << ss/3 << endl;
+
+}    
+void n18 ()
+{
+    cout << "Задание 18:" << endl;
+    cout << "Инфляция 7.5%, введите стоимость товара: ";
+    double s;   
+    cin >> s;
+    cout << "Стоимость на конец года: " << s-s*0.075 << endl;
+
+}    
+void n19 ()
+{
+    cout << "Задание 19:" << endl;
+    double a;   
+    double b;   
+    double h;
+    cout << "Трапеция\nВведи 1осн: ";
+    cin >> a;
+    cout << "Введи 2осн: ";
+    cin >> b;
+    cout << "Введи высоту: ";
+    cin >> h;
+    cout << "Площадь = " << ((a+b)/2)*h << endl;
+
+}    
+void n20 ()
+{
+    cout << "Задание 20(неясное условие):" << endl;
+    double s;   
+    double t;
+    cout << "Скорость поезда - ?\nВведи расстояние(км): ";
+    cin >> s;
+    cout << "Введи время(ч): ";
+    cin >> t;
+    cout << "Скорость(км/ч) = " << s/t << endl;
+
+}    
+void n21 ()
+{
+    cout << "Задание 21:" << endl;
+    double r1;   
+    double r2;
+    cout << "Площадь кольца - ?\nВведи Радиус 1 окр: ";
+    cin >> r1;
+    cout << "Введи Радиус 2 окр: ";
+    cin >> r2;
+    cout << "Площадь кольца = " << fabs(3.14*(r1*r1) - 3.14*(r2*r2)) << endl;
+
+}    
+void n22 ()
+{
+    cout << "Задание 22:" << endl;
+    double a;   
+    double b;
+    cout << "Площадь и периметр прямоугольника\nВведи 1 сторону: ";
+    cin >> a;
+    cout << "Введи 2 сторону: ";
+    cin >> b;
+    cout << "Площадь = " << a*b << "\nperimetr = " << a*2+b*2 << endl;
+
+}    
+void n23 ()
+{
+    cout << "Задание 23:" << endl;
+    double r;   
+    cout << "Площадь круга\nВведи радиус: ";
+    cin >> r;
+
+    cout << "Площадь = " << 3.14*(r*r) << endl;
+
+}    
+void n24 ()
+{
+    cout << "Задание 24:" << endl;
+    double a;   
+    double h;   
+    cout << "Площадь треугольника\nВведи основание: ";
+    cin >> a;
+    cout << "Введи высоту: ";
+    cin >> h;
+    cout << "Площадь = " << 0.5*a*h << endl;
+
+}    
+void n25 ()
+{
+    cout << "Задание 25:" << endl;
+    double x;   
+    cout << "f(x) = x2 + 5x – 10\nx: ";
+    cin >> x;
+    cout << "f(x) = " << x*x + 5*x - 10 << endl;
+
+}    
+void n26 ()
+{
+    cout << "Задание 26:" << endl;
+    double a;   
+    double b;   
+    double c;   
+    cout << "ax2 + bx + c = 0\na: ";
+    cin >> a;
+    cout << "b: ";
+    cin >> b;
+    cout << "c: ";
+    cin >> c;
+    double disc = b*b - 4 * a * c;
+    if (disc < 0){
+        cout << "меньше 0\nкорней нет" << endl;
+        
+    }
+    else if (disc == 0){
+        cout << "равно 0, 1 корень: " << -b/(2*a) << endl;
+        
+    }
+    else{
+        cout << "больше 0, 2 корня:\n1) " << ((0-b)+ pow(disc, 0.5))/2*a << "\n2) " << ((0-b)- pow(disc, 0.5))/2*a << endl;
+        
+    }
+
+}    
+    
+void n27()
+{
+    cout << "Задание 27:" << endl;
+    double x;   
+    cout << "Введите Градусы в цельсиях: ";
+    cin >> x;
+    cout << "В кельвинах это = " << x + 273.15 << endl;
+
+}    
+void n28()
+{
+    cout << "Задание 28:" << endl;
+    double x;   
+    cout << "Введите Градусы в цельсиях: ";
+    cin >> x;
+    cout << "В Фаренгейтах это = " << 32 + x * 1.8 << endl;
+
+}    
+void n29()
+{
+    cout << "Задание 29:" << endl;
+    double x;   
+    cout << "Введите любое число: ";
+    cin >> x;
+    cout << x << "^1 = " << pow(x, 1) << endl;
+    cout << x << "^2 = " << pow(x, 2) << endl;
+    cout << x << "^3 = " << pow(x, 3) << endl;
+    cout << x << "^4 = " << pow(x, 4) << endl;
+    cout << x << "^5 = " << pow(x, 5) << endl;
+
+}    
+void n30()
+{
+    cout << "Задание 30:" << endl;
+    double x;   
+    double y;   
+    cout << "Введите любое число: ";
+    cin >> x;
+    cout << "Введите второе любое число: ";
+    cin >> y;
+    int a = x/y;
+    cout << x << "=" << a << "*" << y << "+" << x - (a * y) << endl;
+
+
+}    
+    
+
+void (*func[30])() = { n1, n2, n3, n4, n5, n6, n7, n8, n9, n10, n11, n12, n13, n14, n15, n16, n17, n18, n19, n20, n21, n22, n23, n24, n25, n26, n27, n28, n29, n30 };
+
+int main() {
+    for(int i = 1; i<31; i++)
+    {
+        int a;
+        func[i-1]();
+        cout << "\n\n\n";
+        cin.ignore();
+        // system("clear");
+    }
+//   n16();
+  return 0;
+}
