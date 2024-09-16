@@ -1,0 +1,11 @@
+.header{
+    background-color: #656565;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 60px;
+}
+
+.header h3{
+    margin: 0;
+}
