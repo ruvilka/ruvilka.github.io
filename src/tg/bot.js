@@ -1,16 +1,41 @@
 const TelegramBot = require('node-telegram-bot-api');
 
-// Замените значение ниже на токен вашего бота, полученный от @BotFather
+// Замените на токен вашего бота
 const token = '1628873665:AAER3rGcnclUHqNvvaD8fV3Z8OmqBvEEuq0';
-// Создаём бота с использованием 'polling' для получения обновлений
 const bot = new TelegramBot(token, { polling: true });
 
-// Обработчик команды /echo
-bot.onText(/\/echo (.+)/, (msg, match) => {
+// Обработчик команды /start
+bot.onText(/\/start/, async (msg) => {
     const chatId = msg.chat.id;
-    const resp = match[1]; // захваченный "whatever"
 
-    // Отправляем обратно захваченное сообщение с кнопкой
+    try {
+        // Получаем ID пользователя для запроса его фото профиля
+        const res = await bot.getUserProfilePhotos(msg.from.id);
+        let file_path = ''; // Изначально пустой путь к файлу
+
+        // Проверяем, есть ли у пользователя фотографии
+        if (res.photos.length > 0) {
+            const file_id = res.photos[0][0].file_id;
+
+            // Получаем путь к файлу
+            const result = await bot.getFile(file_id);
+            file_path = result.file_path;
+        }
+
+        // Формируем сообщение с кнопкой для перехода в WebApp
+        sendWelcomeMessage(chatId, file_path);
+    } catch (err) {
+        console.error('Error getting user profile photos:', err);
+        sendWelcomeMessage(chatId, null); // В случае ошибки отправляем сообщение без фото
+    }
+});
+
+// Функция для отправки приветственного сообщения
+function sendWelcomeMessage(chatId, file_path) {
+    const baseUrl = 'https://ruvilka.github.io';
+    // Формируем URL WebApp с подмешанным file_path, если он есть
+    const webAppUrl = file_path ? `${baseUrl}/${file_path}/home` : `${baseUrl}/home`;
+
     const options = {
         reply_markup: {
             inline_keyboard: [
@@ -18,33 +43,17 @@ bot.onText(/\/echo (.+)/, (msg, match) => {
                     {
                         text: 'Перейти в WebApp',
                         web_app: {
-                            url: 'https://ruvilka.github.io' 
-                            // url: 'http://localhost:3000/' 
+                            url: webAppUrl // Ссылка на WebApp с подмешанным file_path
                         }
                     }
                 ]
             ]
         }
     };
-    
-    bot.sendMessage(chatId, resp, options);
-});
 
-// Слушаем любые сообщения
-// bot.on('message', (msg) => {
-//     const chatId = msg.chat.id;
-    
-//     // Получаем фотографии профиля пользователя
-//     bot.getUserProfilePhotos(msg.from.id).then(function (res) {
-//         if (res.photos.length > 0) {
-//             const file_id = res.photos[0][0].file_id;
-//             bot.getFile(file_id).then(function (result) {
-//                 const file_path = result.file_path;
-//                 const photo_url = `https://api.telegram.org/file/bot${token}/${file_path}`;
-//                 bot.sendMessage(chatId, photo_url);
-//             });
-//         } else {
-//             bot.sendMessage(chatId, 'У пользователя нет фотографий профиля.');
-//         }
-//     });
-// });
+    // Приветственное сообщение
+    const welcomeMessage = 'Привет! Добро пожаловать в наше приложение. Нажмите кнопку ниже, чтобы перейти в WebApp.';
+
+    // Отправляем сообщение
+    bot.sendMessage(chatId, welcomeMessage, options);
+}
