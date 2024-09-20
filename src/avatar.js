@@ -1,36 +1,33 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import { HashRouter as Router, Route, Routes, useParams } from 'react-router-dom';
+import './avatar.css';
+import Alt_ave from './sources/Ave.png';
 
 const UserAvatar = () => {
-  const [user, setUser] = useState(null);
+  const { part1, part2 } = useParams(); // Извлекаем параметры из URL
 
-  useEffect(() => {
-    const userData = window.Telegram.WebApp.initDataUnsafe.user;
-    setUser(userData); // Сохраняем данные пользователя в состояние
-  }, []);
+  const TOKEN = '1628873665:AAER3rGcnclUHqNvvaD8fV3Z8OmqBvEEuq0';
   
-  // Проверяем, есть ли данные пользователя
-  if (!user) {
-    return <div>Загрузка...</div>;
-  }
+  // Объединяем параметры для получения полного file_path
+  const file_path = `${part1}/${part2}`;
+  const decodedFilePath = decodeURIComponent(file_path); // Декодируем file_path
 
-  // Получаем URL фото пользователя
-  const avatarUrl = user.photo_url || 'default_avatar.png'; // Фото по умолчанию
+  // Состояние для замены изображения при ошибке загрузки
+  const [imageSrc, setImageSrc] = useState(`https://api.telegram.org/file/bot${TOKEN}/${decodedFilePath}`);
+
+  // Обработчик для события ошибки при загрузке изображения
+  const handleImageError = () => {
+    setImageSrc(Alt_ave); // Устанавливаем альтернативное изображение при ошибке
+  };
 
   return (
-    <div>
-      {/* Выводим данные о пользователе как строку */}
-      <div style={{ marginBottom: '20px' }}>
-        <pre>{JSON.stringify(user, null, 2)}</pre> {/* Показываем данные userData в формате JSON */}
-      </div>
-
-      {/* Отображение аватара */}
-      <div style={{ width: '50px', height: '50px', borderRadius: '50%', overflow: 'hidden' }}>
-        <img 
-          src={avatarUrl} 
-          alt="User Avatar" 
-          style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
-        />
-      </div>
+    <div className='img_container'>
+      <img 
+        src={imageSrc} 
+        alt="User Avatar" 
+        onError={handleImageError} // Обработчик ошибки загрузки
+        style={{ width: '100%', height: '100%' }}
+      />
     </div>
   );
 };

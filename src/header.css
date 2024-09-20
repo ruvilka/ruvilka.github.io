@@ -1,11 +1,16 @@
 .header{
     background-color: #656565;
+    /* background-color: var(--tg-theme-header-bg-color); */
     display: flex;
-    justify-content: center;
-    align-items: flex-end;
+    justify-content: space-between;
+    align-items: center;
     height: 60px;
+    padding: 0 10px;
 }
 
-.header h3{
+.header > *{
     margin: 0;
+}
+.header > p{
+    justify-self: center;
 }
